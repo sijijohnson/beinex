@@ -7,7 +7,7 @@
     border-radius: 25px;
     position: relative;
     top :120px;
-    left:450px;
+    left:490px;
   }
   h2 {
       color: rgb(116, 113, 113);
@@ -38,26 +38,28 @@
       font-family: Arial, Helvetica, sans-serif; 
 
   }
-  .text-line {
+  #text-line {
     background-color: transparent;
-    color:rgb(158, 154, 154);
+    color:black;
     outline: none;
     outline-style: none;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: solid rgb(138, 135, 135) 1px;
-    padding: 5px 40px;
+    padding: 2px 40px;
     margin: 2px 3px;
+    
   }
   .text-area{
     height: 60px;
+  
   }
 .data {
   font-family: Arial, Helvetica, sans-serif; 
   color: rgb(116, 113, 113);
 }
-.input-data{
-  padding:-5px 2px;
+#input-data{
   margin-top: 8px;
+
 }

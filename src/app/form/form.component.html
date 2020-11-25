@@ -1,44 +1,73 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portal</title>
-    <link rel="stylesheet" href="form.component.css">
-
-</head>
-
-<body style="background-color: rgb(219, 241, 248);">
-    <div class="box">
-        <h2>Form</h2>
-        <form action="#">
-            <div class="form-row">
-                <div class="input-data">
-                    <label class="data" >Name</label>
-                    <div><input type="text" class="text-line" required></div>
+<div class="box">
+    <h2>Form</h2>
+    <form name="form" [formGroup]="reactiveForm">
+        <div>
+            <div class="form-group" id="input-data ">
+                <label class="data">Name</label>
+                <div><input type="text" class="form-control" formControlName="name" [ngClass]="{
+                    'is-invalid':(reactiveForm.get('name').touched || 
+                    reactiveForm.get('name').dirty) &&
+                    !reactiveForm.get('name').valid}" id="text-line"/>
+                <div class="invalid">
+                    <div *ngIf="reactiveForm.get('name').errors?.required">
+                        Name is required
+                    </div>
                 </div>
-                <div class="button button1"><input type="radio" id="male" name="gender" value="male">
-                    <label for="male" class="data">Male</label></div>
-                <div class="button button2"><input type="radio" id="female" name="gender" value="male">
-                    <label for="female" class="data">Female</label></div>
-                <div class="input-data">
-                    <label class="data">Email</label>
-                    <div><input type="email" class="text-line"></div>
                 </div>
-                <div class="input-data">
-                    <label class="data">Contact Number</label>
-                    <div><input type="number" class="text-line"></div>
-                </div>
-                <div class="input-data">
-                    <label class="data">Message</label>
-                    <div><input type="text" class="text-line text-area"></div>
-                </div>
-                <input type="submit" value="Submit" class="submit-data">
             </div>
-        </form>
-    </div>
+            <div>
+            <div class="button"><input type="radio" name="gender" value="male" formControlName="gender" [ngClass]="{
+                'is-invalid':(reactiveForm.get('gender').touched || 
+                reactiveForm.get('gender').dirty) &&
+                !reactiveForm.get('gender').valid}" >
+                <label for="male" class="data">Male</label></div>
+            <div class="button"><input type="radio" name="gender" value="female" formControlName="gender" [ngClass]="{
+                'is-invalid':(reactiveForm.get('gender').touched || 
+                reactiveForm.get('gender').dirty) &&
+                !reactiveForm.get('gender').valid}" >
+                <label for="female" class="data">Female</label></div>
+                <div *ngIf="reactiveForm.get('name').errors?.required">
+                        Gender is required
+                    </div>
+            </div>
+            <div class="form-group" id="input-data ">
+                <label class="data">Email</label>
+                <div><input type="email" class="form-control" formControlName="email"[ngClass]="{
+                    'is-invalid':
+                    (reactiveForm.get('email'.touched)||
+                    reactiveForm.get('email').dirty) &&
+                    !reactiveForm.get('email').valid
+                }" id="text-line"/>
+              <div class="invalid">
+                <div *ngIf="reactiveForm.get('email').errors?.required">Email is required</div> 
+                <div *ngIf="reactiveForm.get('email').errors?.pattern">Enter a valid email id</div> 
+              </div>  
+                </div>
+            </div>
+            <div class="form-group" id="input-data ">
+                <label class="data">Contact Number</label>
+                <div><input type="number" formControlName="contactnumber"[ngClass]="{
+                    'is-invalid':
+                    (reactiveForm.get('contactnumber'.touched)||
+                    reactiveForm.get('contactnumber').dirty) &&
+                    !reactiveForm.get('contactnumber').valid
+                }"id="text-line"/>
+                <div class="invalid">
+                                <div *ngIf="reactiveForm.get('contactnumber').errors?.required">Contact number is required</div>
+                                <div *ngIf="reactiveForm.get('contactnumber').errors?.pattern || 
+                                reactiveForm.get('contactnumber').errors?.maxlength ||
+                                reactiveForm.get('contactnumber').errors?.minlength">Phone number must be at least 10 numbers</div>
+                </div>
+                        </div>
+        
 
-</body>
-
-</html>
+                
+        </div>
+            <div class="form-group" id="input-data ">
+                <label class="data">Message</label>
+                <div><input type="text" id="text-line" class="text-area"></div>
+            </div>
+            <input type="submit" value="Submit" class="submit-data">
+        </div>
+    </form>
+</div>
