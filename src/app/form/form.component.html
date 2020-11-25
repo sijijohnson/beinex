@@ -23,7 +23,7 @@
                 'is-invalid':(reactiveForm.get('gender').dirty) &&
                 !reactiveForm.get('gender').valid}" >
                 <label for="female" class="data">Female</label></div>
-                <small *ngIf="reactiveForm.get('name').errors?.required">
+                <small *ngIf="reactiveForm.get('gender').errors?.required">
                         Gender is required
                 </small>
             </div>
