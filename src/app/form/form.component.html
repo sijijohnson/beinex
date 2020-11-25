@@ -20,7 +20,7 @@
                 !reactiveForm.get('gender').valid}" >
                 <label for="male" class="data">Male</label></div>
             <div class="button"><input type="radio" name="gender" value="female" formControlName="gender" [ngClass]="{
-                'is-invalid':(reactiveForm.get('gender').dirty) &&
+            1    'is-invalid':(reactiveForm.get('gender').dirty) &&
                 !reactiveForm.get('gender').valid}" >
                 <label for="female" class="data">Female</label></div>
                 <small *ngIf="reactiveForm.get('gender').errors?.required">
