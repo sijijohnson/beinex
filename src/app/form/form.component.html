@@ -1,46 +1,42 @@
 <div class="box">
     <h2>Form</h2>
-    <form name="form" [formGroup]="reactiveForm">
+    <form name="form" [formGroup]="reactiveForm" (ngSubmit)='onsubmit()'>
         <div>
             <div class="form-group" id="input-data ">
                 <label class="data">Name</label>
                 <div><input type="text" class="form-control" formControlName="name" [ngClass]="{
-                    'is-invalid':(reactiveForm.get('name').touched || 
-                    reactiveForm.get('name').dirty) &&
+                    'is-invalid':(reactiveForm.get('name').dirty) &&
                     !reactiveForm.get('name').valid}" id="text-line"/>
                 <div class="invalid">
-                    <div *ngIf="reactiveForm.get('name').errors?.required">
+                    <small *ngIf="reactiveForm.get('name').errors?.required">
                         Name is required
-                    </div>
+                    </small>
                 </div>
                 </div>
             </div>
             <div>
             <div class="button"><input type="radio" name="gender" value="male" formControlName="gender" [ngClass]="{
-                'is-invalid':(reactiveForm.get('gender').touched || 
-                reactiveForm.get('gender').dirty) &&
+                'is-invalid':(reactiveForm.get('gender').dirty) &&
                 !reactiveForm.get('gender').valid}" >
                 <label for="male" class="data">Male</label></div>
             <div class="button"><input type="radio" name="gender" value="female" formControlName="gender" [ngClass]="{
-                'is-invalid':(reactiveForm.get('gender').touched || 
-                reactiveForm.get('gender').dirty) &&
+                'is-invalid':(reactiveForm.get('gender').dirty) &&
                 !reactiveForm.get('gender').valid}" >
                 <label for="female" class="data">Female</label></div>
-                <div *ngIf="reactiveForm.get('name').errors?.required">
+                <small *ngIf="reactiveForm.get('name').errors?.required">
                         Gender is required
-                    </div>
+                </small>
             </div>
             <div class="form-group" id="input-data ">
                 <label class="data">Email</label>
                 <div><input type="email" class="form-control" formControlName="email"[ngClass]="{
                     'is-invalid':
-                    (reactiveForm.get('email'.touched)||
-                    reactiveForm.get('email').dirty) &&
+                    (reactiveForm.get('email').dirty) &&
                     !reactiveForm.get('email').valid
                 }" id="text-line"/>
               <div class="invalid">
-                <div *ngIf="reactiveForm.get('email').errors?.required">Email is required</div> 
-                <div *ngIf="reactiveForm.get('email').errors?.pattern">Enter a valid email id</div> 
+                <small *ngIf="reactiveForm.get('email').errors?.required">Email is required</small> 
+                <small *ngIf="reactiveForm.get('email').errors?.pattern">Enter a valid email id</small> 
               </div>  
                 </div>
             </div>
@@ -48,15 +44,12 @@
                 <label class="data">Contact Number</label>
                 <div><input type="number" formControlName="contactnumber"[ngClass]="{
                     'is-invalid':
-                    (reactiveForm.get('contactnumber'.touched)||
-                    reactiveForm.get('contactnumber').dirty) &&
+                    (reactiveForm.get('contactnumber').dirty) &&
                     !reactiveForm.get('contactnumber').valid
-                }"id="text-line"/>
+                }" id="text-line"/>
                 <div class="invalid">
-                                <div *ngIf="reactiveForm.get('contactnumber').errors?.required">Contact number is required</div>
-                                <div *ngIf="reactiveForm.get('contactnumber').errors?.pattern || 
-                                reactiveForm.get('contactnumber').errors?.maxlength ||
-                                reactiveForm.get('contactnumber').errors?.minlength">Phone number must be at least 10 numbers</div>
+                                <small *ngIf="reactiveForm.get('contactnumber').errors?.required">Contact number is required</small>
+                                <small *ngIf="reactiveForm.get('contactnumber').errors?.pattern ">Phone number must be at least 10 numbers</small>
                 </div>
                         </div>
         

@@ -14,11 +14,11 @@ export class FormComponent implements OnInit{
       name: ['',Validators.required],
       gender:['',Validators.required],
       email: ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      contactnumber: ['', [ Validators.required,
-        Validators.pattern("^[0-9]*$"),
-        Validators.minLength(10), Validators.maxLength(10)]],
+      contactnumber: ['', [ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       message: []
     })
   }
-
+onsubmit(){
+  console.log(this.reactiveForm.value)
+}
 }
