@@ -8,6 +8,7 @@ import { ListviewComponent } from './listview/listview.component';
 import {LandingpageComponent} from './landingpage/landingpage.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   
   ],
   providers: [],

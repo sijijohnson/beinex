@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { DformService } from '../dform.service';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class FormComponent implements OnInit{
   reactiveForm : FormGroup;
-  constructor(public formbuilder: FormBuilder) { }
+  constructor(private formbuilder:FormBuilder, private _dformService:DformService){ }
   ngOnInit():void{
     this.reactiveForm = this.formbuilder.group({
       name: ['',Validators.required],
@@ -19,6 +20,11 @@ export class FormComponent implements OnInit{
     })
   }
 onsubmit(){
-  console.log(this.reactiveForm.value)
+  console.log(this.reactiveForm.value);
+  this._dformService.register(this.reactiveForm.value)
+  .subscribe(
+    response => console.log('Success!',response),
+    error =>console.error('Error!',error)
+  )
 }
 }

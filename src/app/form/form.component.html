@@ -4,11 +4,11 @@
         <div>
             <div class="form-group" id="input-data ">
                 <label class="data">Name</label>
-                <div><input type="text" class="form-control" formControlName="name" [ngClass]="{
-                    'is-invalid':(reactiveForm.get('name').dirty) &&
-                    !reactiveForm.get('name').valid}" id="text-line"/>
-                <div class="invalid">
-                    <small *ngIf="reactiveForm.get('name').errors?.required">
+                <div><input type="text" class="form-control" formControlName="name" id="text-line"/>
+                <div *ngIf="reactiveForm.get('name').invalid &&
+                    (reactiveForm.get('name').dirty ||
+                    reactiveForm.get('name').touched)"class="invalid">
+                    <small *ngIf="reactiveForm.get('name').errors?.required" >
                         Name is required
                     </small>
                 </div>
@@ -20,10 +20,10 @@
                 !reactiveForm.get('gender').valid}" >
                 <label for="male" class="data">Male</label></div>
             <div class="button"><input type="radio" name="gender" value="female" formControlName="gender" [ngClass]="{
-                'is-invalid':(reactiveForm.get('gender').dirty) &&
+                'is-invalid':reactiveForm.get('gender').dirty &&
                 !reactiveForm.get('gender').valid}" >
                 <label for="female" class="data">Female</label></div>
-                <small *ngIf="reactiveForm.get('name').errors?.required">
+                <small *ngIf="reactiveForm.get('gender').errors?.required">
                         Gender is required
                 </small>
             </div>
@@ -60,7 +60,7 @@
                 <label class="data">Message</label>
                 <div><input type="text" id="text-line" class="text-area"></div>
             </div>
-            <input type="submit" value="Submit" class="submit-data">
+            <input [disabled]='!reactiveForm.valid' type="submit" value="Submit" class="submit-data">
         </div>
     </form>
 </div>
