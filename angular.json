@@ -64,6 +64,7 @@
           "options": {
             "browserTarget": "informationportal:build"
           },
+          
           "configurations": {
             "production": {
               "browserTarget": "informationportal:build:production"

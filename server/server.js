@@ -1,17 +1,26 @@
 const express = require ('express');
-const bodyParser =require('body-parser');
-const cors = require('cors')
 const PORT=3000;
 const app =express();
+const data =require('./data.json');
+let bodyParser=require('body-parser');
+let cors = require('cors');
+app.use(cors())
+let corsOptions={
+    origin:"",
+}
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json());
-app.use(cors());
-app.get('/',function(req,res){
-res.send('Helo from server');
+
+app.get('/api/list',(req,res)=>{
+    res.send(data)
 })
-app.post('/formdata',function(req,res){
-    console.log(req.body);
-    res.status(200).send({"message":"Data received"});
+app.post('/api/form/',
+(req,res)=>{
+    let d =req.body
+    console.log(d)
+    data.push(d)
+    res.status('200').json({message:'User Added'});
 })
-app.listen(PORT,function(){
-    console.log("server running on localhost:" +PORT);
-})
+const port=process.env.PORT||3000;
+app.listen(port,()=>console.log(`listening on ${port}`));

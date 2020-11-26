@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup,Validators, FormBuilder } from '@angular/forms';
 import { DformService } from '../dform.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class FormComponent implements OnInit{
       gender:['',Validators.required],
       email: ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       contactnumber: ['', [ Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      message: []
+      message:['']
     })
   }
 onsubmit(){
