@@ -9,12 +9,15 @@ import { DformService } from '../dform.service';
 export class ListviewComponent implements OnInit {
   users: any
   constructor(private _dformService:DformService){}
-
-
-
   ngOnInit() {
 this._dformService.getlist().subscribe(data=>{
   this.users=data
 })
+}
+key :string='no';
+reverse:boolean=false;
+sort(key){
+  this.key=key;
+  this.reverse=!this.reverse;
 }
 }
