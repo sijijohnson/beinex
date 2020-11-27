@@ -9,7 +9,8 @@ import {LandingpageComponent} from './landingpage/landingpage.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {Ng2OrderModule} from 'ng2-order-pipe'
+import {Ng2OrderModule} from 'ng2-order-pipe';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {Ng2OrderModule} from 'ng2-order-pipe'
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    Ng2OrderModule
+    Ng2OrderModule,
+    ChartsModule
   
   ],
   providers: [],
