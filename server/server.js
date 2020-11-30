@@ -12,12 +12,12 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json());
 
-app.get('/api/list',(req,res)=>{
+app.get('/api/list',(req,res)=>{                  
     res.send(data)
 })
 app.post('/api/form/',
 (req,res)=>{
-    let d =req.body
+    let d =req.body                                     //push to table using post
     console.log(d)
     data.push(d)
     res.status('200').json({message:'User Added'});

@@ -10,6 +10,6 @@ _url='http://localhost:3000/api/form/';
    return this._http.post<any>(this._url,userData);
   }
 getlist(){
-  return this._http.get('http://localhost:3000/api/list/')
+  return this._http.get('http://localhost:3000/api/list/')                     //get list method for http api
 }
 }

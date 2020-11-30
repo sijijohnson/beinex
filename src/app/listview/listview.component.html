@@ -2,7 +2,7 @@
     <h3>List View</h3>
     <table>
         <tr>
-            <th (click)="sort('i+1')">No&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('no')">No&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('name')">Name&nbsp;<i class="fa fa-sort"></i></th>
             <th>Gender</th>
             <th>Email</th>
@@ -10,8 +10,8 @@
             <th>Message</th>
         </tr>
        
-        <tr *ngFor="let user of users | orderBy:key:reverse ;let i = index">
-            <td>{{i+1}}</td>
+        <tr *ngFor="let user of users | orderBy:key:reverse ">   <!---sorting key-->
+            <td>{{user.no}}</td>
             <td>{{user.name}}</td>
             <td>{{user.gender}}</td>
             <td>{{user.email}}</td>
@@ -26,7 +26,9 @@
     <canvas baseChart
          [data]="pieChartData"
          [labels]="pieChartLabels"
-         [chartType]="pieChartType"></canvas>
+         [chartType]="pieChartType"
+         [colors]="pieChartColors">
+        </canvas>
     </div>
 </div>
     

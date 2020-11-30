@@ -20,10 +20,10 @@ export class FormComponent implements OnInit{
     })
   }
 onsubmit(){
-  console.log(this.reactiveForm.value);
-  this._dformService.register(this.reactiveForm.value)
-  .subscribe(
-    response => console.log('Success!',response),
+  console.log(this.reactiveForm.value);                       //onsubmit function to print in console the form value     
+  this._dformService.register(this.reactiveForm.value)        
+  .subscribe(                                                 //service register the form value and subscribe response,error
+    response => console.log('Success!',response),             
     error =>console.error('Error!',error)
   )
 }

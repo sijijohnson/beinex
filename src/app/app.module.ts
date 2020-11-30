@@ -11,13 +11,15 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import {ChartsModule} from 'ng2-charts';
-
+import { AuthenticationModule } from './authentication/authentication.module';
+import {AuthGuard} from './auth.guard'
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ListviewComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    
 
   ],
   imports: [
@@ -28,10 +30,11 @@ import {ChartsModule} from 'ng2-charts';
     CommonModule,
     HttpClientModule,
     Ng2OrderModule,
-    ChartsModule
+    ChartsModule,
+    AuthenticationModule
   
   ],
-  providers: [],
+  providers: [AuthGuard],
   exports:[
     AppComponent,
     FormComponent,

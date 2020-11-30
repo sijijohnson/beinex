@@ -1,0 +1,35 @@
+.box {
+    width: 400px;
+    height: 250px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 25px;
+    position: relative;
+    top :120px;
+    left:420px;
+  }
+  h2 {
+      color: rgb(116, 113, 113);
+      position: relative;
+      top: -20px;
+      font-family: Arial, Helvetica, sans-serif; 
+  }
+  #input-data{
+    margin-top: 8px;
+  
+  }
+ #input{
+     padding: 5px 20px;
+     margin: 10px 2px;
+ }
+ .btn{
+     padding: 8px 10px;
+     background-color: rgb(171, 171, 224);
+     border-radius: 10px;
+ }
+ small{
+     color: red;
+ }
+ .reg-link{
+     margin-left: 40px;
+ }
