@@ -12,7 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import {ChartsModule} from 'ng2-charts';
 import { AuthenticationModule } from './authentication/authentication.module';
-import {AuthGuard} from './auth.guard'
+import {AuthGuard} from './auth.guard';
+import {AuthService} from './auth.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import {AuthGuard} from './auth.guard'
     AuthenticationModule
   
   ],
-  providers: [AuthGuard],
+  providers: [AuthService,AuthGuard],
   exports:[
     AppComponent,
     FormComponent,
